@@ -175,9 +175,14 @@
 
         log("Locating...");
         navigator.geolocation.getCurrentPosition((position) => {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            
+            // Correct Location
+            // const lat = position.coords.latitude;
+            // const lon = position.coords.longitude;
+
+            // Spoofing for recording
+            const lat = position.coords.latitude + Math.floor(Math.random() * (0.1));
+            const lon = position.coords.longitude - Math.floor(Math.random() * (0.1));
+
             // Generate Random Temp between -40 and 60
             // Math.random() * (max - min) + min
             const temp = Math.floor(Math.random() * (100)) - 40; 
